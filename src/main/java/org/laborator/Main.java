@@ -49,13 +49,26 @@ public class Main {
 
         executor.shutdown();
 
-        writeToFile("publications.txt", pubLines);
-        writeToFile("subscriptions.txt", subLines);
+        int threadsUsed = Config.numThreads;
+
+        writeToFile("publications " + threadsUsed + " threads.txt", pubLines);
+        writeToFile("subscriptions "+ threadsUsed + " threads.txt", subLines);
 
         long end = System.nanoTime();
-        System.out.println("Datele au fost generate cu succes!");
-        System.out.printf("Timp total: %.2f ms\n", (end - start) / 1_000_000.0);
+        System.out.println("The data was successfully generated!");
+        System.out.printf("Total time: %.2f ms\n", (end - start) / 1_000_000.0);
 
-        printStats();
+        int totalMessages = Config.numMessages;
+        System.out.println("Total messages to generate: " + totalMessages);
+
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        long totalMemory = Runtime.getRuntime().totalMemory() / (1024 * 1024); // in MB
+
+        System.out.println("CPU cores available: " + availableProcessors);
+        System.out.println("Threads used: " + threadsUsed);
+        System.out.println("Total RAM (JVM allocated): " + totalMemory + " MB");
+
+
+        //printStats();
     }
 }

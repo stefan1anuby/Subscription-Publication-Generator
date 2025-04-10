@@ -55,8 +55,8 @@ public class Generator {
             increment(operatorStats, "wind:" + operator);
         }
 
-        ... maybe add some more conditions here?
-        ... regarding the statistics, how about just printing the subriptions to the output and just CTRL F on logs and use regex manually to make a statistics for a specific type of subription
+        //... maybe add some more conditions here?
+        //... regarding the statistics, how about just printing the subriptions to the output and just CTRL F on logs and use regex manually to make a statistics for a specific type of subription
 
         return sub;
     }
